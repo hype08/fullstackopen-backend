@@ -18,3 +18,5 @@ npm install
 [x] - REST  
 [x] - Fetching a single resource  
 [x] - Deleting resources
+[x] - VS Code REST client  
+[] - Receiving data (body parser)
