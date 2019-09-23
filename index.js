@@ -56,11 +56,11 @@ const generateId = () => {
   return maxId + 1;
 };
 
-app.post("/notes", (request, response) => {
-  const body = request.body;
+app.post("/notes", (req, res) => {
+  const body = req.body;
 
   if (!body.content) {
-    return response.status(400).json({
+    return res.status(400).json({
       error: "content missing"
     });
   }
@@ -74,7 +74,7 @@ app.post("/notes", (request, response) => {
 
   notes = notes.concat(note);
 
-  response.json(note);
+  res.json(note);
 });
 
 const port = 3001;
