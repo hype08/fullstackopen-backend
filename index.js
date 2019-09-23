@@ -1,4 +1,5 @@
-const http = require("http");
+const express = require("express");
+const app = express();
 
 let notes = [
   {
@@ -20,9 +21,31 @@ let notes = [
     important: true
   }
 ];
-const app = http.createServer((request, response) => {
-  response.writeHead(200, { "Content-Type": "application/json" });
-  response.end(JSON.stringify(notes));
+
+app.get("/", (req, res) => {
+  res.send("<h1>Hello World!</h1>");
+});
+
+app.get("/notes", (req, res) => {
+  res.json(notes);
+});
+
+app.get("/notes/:id", (req, res) => {
+  const id = Number(req.params.id);
+  const note = notes.find(note => note.id === id);
+
+  if (note) {
+    res.json(note);
+  } else {
+    res.status(404).end();
+  }
+});
+
+app.delete("/notes/:id", (req, res) => {
+  const id = Number(req.params.id);
+  notes = notes.filter(note => note.id !== id);
+
+  res.status(204).end();
 });
 
 const port = 3001;

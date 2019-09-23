@@ -12,4 +12,9 @@ npm install
 3a
 
 [x] - Simple Web Server  
-[] - Express
+[x] - Express  
+[x] - Web and Express  
+[x] - Nodemon  
+[x] - REST  
+[x] - Fetching a single resource  
+[x] - Deleting resources
