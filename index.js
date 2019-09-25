@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 app.use(express.static("build"));
-app.use(cors({ origin: "http://localhost:3000" }));
+app.use(cors());
 app.use(bodyParser.json());
 
 let notes = [
